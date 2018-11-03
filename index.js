@@ -5,6 +5,7 @@ const app = express()
 const userModel = require('./models/user')
 const userServices = require('./services/user')
 const stepsServices = require('./services/steps')
+const jobs = require('./jobs')
 
 app.use(bodyParser.urlencoded({
   extended: true
@@ -50,3 +51,4 @@ app.post('/', (req, res) => {
 })
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`))
+jobs.start()
